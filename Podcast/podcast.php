@@ -20,11 +20,11 @@ foreach ($rss->item as $item) {
 	$Date=$item->pubDate;
 	$titre= $item->title." \n";
 	$lien=$item->link;
-	$media= $item->enclosure->url;
+	$media= $item->enclosure['url'];
 	$duree= $item->{'itunes:duration'};
 	echo "<tr><td>$Date</td>
 		<td><a href=".$lien.">$titre</a></td>
 		<td><audio controls='controls'><source src=$media type='audio/mp3'/></audio></td>
 		<td>$duree</td>
-		<td>$media</td></tr>";
+		<td><a href=".$media.">$media</td></tr>";
 }
