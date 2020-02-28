@@ -4,12 +4,11 @@ $filmvo=tmdbget('search/movie',['query'=>"Lord of the Ring"]);
 $decodevo=json_decode($filmvo,true);
 $len=$decodevo["total_results"];
 for ($i=0;$i<$len;$i++){
-	if ($decodevo['results'][$i]["id"]<=1000) print($decodevo['results'][$i]["original_title"]."<br>");
+	if ($decodevo['results'][$i]["id"]<=1000) print($decodevo['results'][$i]["original_title"]."\n");
 }
 
 for ($i=0;$i<$len;$i++){
 	if ($decodevo['results'][$i]["id"]<=1000){
-		print("<br>".$decodevo['results'][$i]["title"].":<br>");
 		$casting=tmdbget('movie/'.$decodevo['results'][$i]["id"].'/credits');
 		$clearcast=json_decode($casting,true);
 		//var_dump($clearcast);
@@ -20,7 +19,7 @@ for ($i=0;$i<$len;$i++){
 			//var_dump($clearact);
 			$number=0;
 			while(isset($clearact['person']['known_for'][$number]))$number++;
-			print("nom:	".$clearcast['cast'][$cpt]['name']." role: ".$clearcast['cast'][$cpt]['character']." nb de roles: ".$number."<br>");
+			print("nom: ".$clearcast['cast'][$cpt]['name']." role: ".$clearcast['cast'][$cpt]['character']." nb de roles: ".$number."\n");
 			$cpt++;
 		}
 	}
