@@ -20,7 +20,7 @@ for ($i=0;$i<$len;$i++){
 			//var_dump($clearact);
 			$number=0;
 			while(isset($clearact['person']['known_for'][$number]))$number++;
-			print("nom:	".$clearcast['cast'][$cpt]['name']." role: ".$clearcast['cast'][$cpt]['character']." nb de roles: ".$number."<br>");
+			print("nom:	".'<a href=liste_films.php?id='.$clearact['person']['id'].'>'.$clearcast['cast'][$cpt]['name']."</a> role: ".$clearcast['cast'][$cpt]['character']." nb de roles: ".$number."<br>");
 			$cpt++;
 		}
 	}
