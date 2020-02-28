@@ -12,6 +12,7 @@ function tmdbget($urlcomponent, $params=null) {
 	
 	$targeturl = $apiprefix . $urlcomponent . '?api_key=' . $apikey;
     $targeturl .= (isset($params) ? '&' . http_build_query($params) : '');
+	//print($targeturl);
     list($content, $info) = smartcurl($targeturl);
 
     return $content;
